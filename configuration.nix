@@ -16,13 +16,6 @@
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
 
-  # Swap Mount
-  swapDevices = [ {
-    device = "/swapfile";
-    size = 34*1024;
-  } ];
-
-
   networking.hostName = "hal-9000"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -96,6 +89,8 @@
       firefox
       vesktop
       vscode
+      stremio
+      jellyfin-media-player
     #  thunderbird
     ];
   };
@@ -142,6 +137,15 @@
     audacity
     shotcut
     qbittorrent
+    gamescope
+    yt-dlp
+  ];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
   ];
 
   # Enable various services (set by me!)
