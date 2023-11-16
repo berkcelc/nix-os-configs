@@ -16,6 +16,13 @@
   boot.initrd.systemd.enable = true;
   boot.plymouth.enable = true;
 
+  # Swap Mount
+  swapDevices = [ {
+    device = "/swapfile";
+    size = 34*1024;
+  } ];
+
+
   networking.hostName = "hal-9000"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -172,3 +179,4 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
+
