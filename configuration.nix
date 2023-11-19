@@ -142,6 +142,7 @@
     yt-dlp
     git
     niv
+    sbctl
   ];
 
   # Fonts
