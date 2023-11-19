@@ -147,6 +147,8 @@
     niv
     sbctl
     appimage-run
+    man-pages
+    man-pages-posix
   ];
 
   # Fonts
@@ -193,6 +195,8 @@
   programs.virt-manager.enable = true;
   services.fwupd.enable = true;
   hardware.wooting.enable = true;
+  documentation.man.generateCaches = true;
+  documentation.dev.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
