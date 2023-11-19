@@ -85,7 +85,7 @@
   users.users.ryansamuels = {
     isNormalUser = true;
     description = "Ryan Samuels";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       vesktop
       vscode
@@ -143,6 +143,7 @@
     git
     niv
     sbctl
+    appimage-run
   ];
 
   # Fonts
@@ -188,6 +189,7 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   services.fwupd.enable = true;
+  hardware.wooting.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -207,4 +209,3 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
-
