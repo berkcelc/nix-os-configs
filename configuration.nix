@@ -11,6 +11,9 @@
       ./lanzaboote.nix
     ];
 
+  # Kernel parameters
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
