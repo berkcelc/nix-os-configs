@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./lanzaboote.nix
     ];
 
   # Bootloader.
@@ -86,7 +87,6 @@
     description = "Ryan Samuels";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
       vesktop
       vscode
       stremio
@@ -120,6 +120,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    firefox
     gnome.gnome-software
     gnomeExtensions.appindicator
     gnomeExtensions.bing-wallpaper-changer
@@ -140,6 +141,7 @@
     gamescope
     yt-dlp
     git
+    niv
   ];
 
   # Fonts
@@ -147,14 +149,28 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    aegyptus
   ];
 
-  # Enable various services (set by me!)
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  services.ratbagd.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  # Auto Updates
+  system.autoUpgrade = {
+  enable = true;
+  flake = "./";
+  flags = [
+      "--update-input"
+      "nixpkgs"
+    ];
+    dates = "02:00";
+    randomizedDelaySec = "45min";
+  };
+
+  # Printers
+  services.printing.drivers = [ pkgs.canon-cups-ufr2 ];
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -165,6 +181,12 @@
   # };
 
   # List services that you want to enable:
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.ratbagd.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  services.fwupd.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -184,3 +206,4 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
+
