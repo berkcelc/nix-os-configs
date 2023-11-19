@@ -1,4 +1,10 @@
 # file: configuration.nix
+# Run these commands to enable secure boot at /etc/nixos
+# sudo sbctl create-keys
+# sudo niv init
+# niv add nix-community/lanzaboote -r v0.3.0 -v 0.3.0
+# Enable setup mode for secure boot in UEFI
+# Boot back in and run this: sudo sbctl enroll-keys --microsoft
 { pkgs, lib, ... }:
 let
     sources = import ./nix/sources.nix;
@@ -6,11 +12,6 @@ let
 in
 {
   imports = [ lanzaboote.nixosModules.lanzaboote ];
-
-  environment.systemPackages = [
-    # For debugging and troubleshooting Secure Boot.
-    pkgs.sbctl
-  ];
 
   # Lanzaboote currently replaces the systemd-boot module.
   # This setting is usually set to true in configuration.nix
