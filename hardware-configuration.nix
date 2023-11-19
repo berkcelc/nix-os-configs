@@ -16,7 +16,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/d1aad512-2ddc-4880-a35f-4175ec4926a8";
       fsType = "btrfs";
-      options = [ "subvol=@", "compress-force=zstd" ];
+      options = [ "subvol=@" "compress-force=zstd" ];
     };
 
   boot.initrd.luks.devices."luks-f0623051-156f-4054-8cf0-6717d7d9d15a".device = "/dev/disk/by-uuid/f0623051-156f-4054-8cf0-6717d7d9d15a";
@@ -42,3 +42,4 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
+
