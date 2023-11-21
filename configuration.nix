@@ -11,6 +11,24 @@
       ./lanzaboote.nix
     ];
 
+  # AMD GPU Driver Setup
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  # OpenCL/GL
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    # Blender Acceleration
+    rocm-opencl-icd
+    rocm-opencl-runtime
+    # Enables amdvlk, which applications choose whether to use mesa or amdvlk
+    amdvlk
+    # Video Acceleration
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
+  # Vulkan
+  hardware.opengl.driSupport = true;
+
   # Kernel parameters
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
