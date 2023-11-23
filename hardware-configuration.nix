@@ -29,6 +29,7 @@
   swapDevices = [ {
     device = "/swapfile";
     size = 34*1024;
+    randomEncryption.enable = true;
   } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -42,4 +43,3 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
-
