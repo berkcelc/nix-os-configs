@@ -33,6 +33,13 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   #boot.kernelParams = [  ];
 
+  # Automated Garbage Collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -217,6 +224,7 @@
   hardware.wooting.enable = true;
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
+  nix.optimise.automatic = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
