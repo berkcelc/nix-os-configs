@@ -31,6 +31,7 @@
 
   # Kernel parameters
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  #boot.kernelParams = [  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -167,6 +168,7 @@
     appimage-run
     man-pages
     man-pages-posix
+    onlyoffice-bin
   ];
 
   # Fonts
