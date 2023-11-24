@@ -224,6 +224,7 @@
   hardware.wooting.enable = true;
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
+  documentation.enable = true;
   nix.optimise.automatic = true;
 
   # Enable the OpenSSH daemon.
