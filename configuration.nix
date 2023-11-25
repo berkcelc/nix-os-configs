@@ -32,6 +32,8 @@
   # Kernel parameters
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   #boot.kernelParams = [  ];
+  # Set Linux Kernel Version
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Automated Garbage Collection
   nix.gc = {
@@ -189,13 +191,7 @@
   # Auto Updates
   system.autoUpgrade = {
   enable = true;
-  flake = "./";
-  flags = [
-      "--update-input"
-      "nixpkgs"
-    ];
-    dates = "02:00";
-    randomizedDelaySec = "45min";
+  flags = [ "--upgrade" ];
   };
 
   # Printers
