@@ -199,7 +199,7 @@
   services.printing.drivers = [ pkgs.canon-cups-ufr2 ];
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
 
