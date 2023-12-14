@@ -189,7 +189,11 @@
   ];
 
   # Auto Updates
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade = {
+    enable = true;
+    dates = "daily"; 
+    persistent = true;
+  };
 
   # Printers
   services.printing.drivers = [ pkgs.canon-cups-ufr2 ];
