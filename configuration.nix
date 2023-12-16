@@ -122,6 +122,7 @@
       vscode
       stremio
       jellyfin-media-player
+      prismlauncher
     #  thunderbird
     ];
   };
