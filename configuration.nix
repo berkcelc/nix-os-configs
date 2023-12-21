@@ -192,6 +192,7 @@
   # Auto Updates
   system.autoUpgrade = {
     enable = true;
+    flags = [ "--upgrade" ];
     dates = "daily"; 
     persistent = true;
   };
