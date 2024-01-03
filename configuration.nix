@@ -164,7 +164,7 @@
     gnomeExtensions.vitals
     flatpak
     gnome.gnome-software
-    pkgs.gnome3.gnome-tweaks
+    gnome3.gnome-tweaks
     piper
     obs-studio
     vlc
