@@ -123,6 +123,7 @@
       stremio
       jellyfin-media-player
       prismlauncher
+      r2modman
     #  thunderbird
     ];
   };
@@ -179,6 +180,7 @@
     man-pages
     man-pages-posix
     onlyoffice-bin
+    ffmpeg
   ];
 
   # Fonts
