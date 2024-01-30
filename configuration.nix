@@ -170,8 +170,10 @@
     vlc
     audacity
     shotcut
+    libsForQt5.kdenlive
     qbittorrent
     gamescope
+    gamemode
     yt-dlp
     git
     niv
