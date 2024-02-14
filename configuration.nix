@@ -182,9 +182,8 @@
   # Auto Updates
   system.autoUpgrade = {
     enable = true;
-    flags = [ "--update-input" "nixpkgs"  ];
     dates = "daily"; 
-    flake = ".#hal-9000";
+    flake = "/etc/nixos#hal-9000";
     persistent = true;
   };
 
