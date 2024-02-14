@@ -78,9 +78,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -124,7 +124,6 @@
   };
   hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
   services.flatpak.enable = true;
-  virtualisation.vmware.host.enable = true;
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
@@ -202,6 +201,7 @@
   # Virtualization
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  virtualisation.vmware.host.enable = true;
 
   # Nix Configurations
   nix.optimise.automatic = true;
