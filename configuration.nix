@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./lanzaboote.nix
     ];
 
   # AMD GPU Drivers
@@ -138,8 +137,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Gnome Plugins
     gnomeExtensions.appindicator
@@ -220,6 +217,13 @@
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
   documentation.enable = true;
+
+  # Enable a swap file
+  swapDevices = [ {
+    device = "/swapfile";
+    size = 34*1024;
+    randomEncryption.enable = true;
+  } ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
