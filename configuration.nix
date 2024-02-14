@@ -11,7 +11,7 @@
       ./lanzaboote.nix
     ];
 
-  # AMD GPU Driver Setup
+  # AMD GPU Drivers
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
   # OpenCL/GL
@@ -201,20 +201,25 @@
   };
 
   # List services that you want to enable:
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  services.ratbagd.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  # Virtualization
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+
+  # Nix Configurations
+  nix.optimise.automatic = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Services
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.ratbagd.enable = true;
   services.fwupd.enable = true;
   hardware.wooting.enable = true;
+
+  # Documentation
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
   documentation.enable = true;
-  nix.optimise.automatic = true;
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
