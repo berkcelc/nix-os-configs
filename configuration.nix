@@ -184,7 +184,7 @@
     enable = true;
     flags = [ "--update-input" "nixpkgs"  ];
     dates = "daily"; 
-    flake = inputs.self.outPath;
+    flake = ".#hal-9000";
     persistent = true;
   };
 
