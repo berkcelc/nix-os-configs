@@ -182,8 +182,9 @@
   # Auto Updates
   system.autoUpgrade = {
     enable = true;
-    flags = [ "--upgrade" ];
+    flags = [ "--update-input" "nixpkgs"  ];
     dates = "daily"; 
+    flake = inputs.self.outPath;
     persistent = true;
   };
 
