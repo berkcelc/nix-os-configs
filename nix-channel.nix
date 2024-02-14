@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 
-let nixPath = "/tmp/nixPath";
+let nixPath = "/etc/nixPath";
 
 in
 {
