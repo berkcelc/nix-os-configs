@@ -8,10 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./lanzaboote.nix
+      ./nix-channel.nix
     ];
 
-  # AMD GPU Driver Setup
+  # AMD GPU Drivers
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
   # OpenCL/GL
@@ -49,11 +49,6 @@
   boot.plymouth.enable = true;
 
   networking.hostName = "hal-9000"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -84,9 +79,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -101,16 +96,11 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    jack.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ryansamuels = {
@@ -124,7 +114,6 @@
       jellyfin-media-player
       prismlauncher
       r2modman
-    #  thunderbird
     ];
   };
 
@@ -136,7 +125,6 @@
   };
   hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
   services.flatpak.enable = true;
-  virtualisation.vmware.host.enable = true;
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
@@ -149,41 +137,38 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-    firefox
-    gnome.gnome-software
+    # Gnome Plugins
     gnomeExtensions.appindicator
     gnomeExtensions.bing-wallpaper-changer
     gnomeExtensions.caffeine
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.dash-to-dock
-    gnomeExtensions.openweather
     gnomeExtensions.vitals
-    flatpak
+
+    # Media
+    vlc
+    obs-studio
+    audacity
+    libsForQt5.kdenlive
+    shotcut
+    onlyoffice-bin
+    firefox
+    qbittorrent
+
+    # Utilities
     gnome.gnome-software
     gnome3.gnome-tweaks
-    piper
-    obs-studio
-    vlc
-    audacity
-    shotcut
-    libsForQt5.kdenlive
-    qbittorrent
+    git
+    yt-dlp
+    ffmpeg
     gamescope
     gamemode
-    yt-dlp
-    git
-    niv
-    sbctl
+    flatpak
     appimage-run
     man-pages
     man-pages-posix
-    onlyoffice-bin
-    ffmpeg
+    piper
   ];
 
   # Fonts
@@ -197,8 +182,9 @@
   # Auto Updates
   system.autoUpgrade = {
     enable = true;
-    flags = [ "--upgrade" ];
+    flags = [ "--update-input" "nixpkgs"  ];
     dates = "daily"; 
+    flake = ".#hal-9000";
     persistent = true;
   };
 
@@ -211,29 +197,34 @@
     openFirewall = true;
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  services.ratbagd.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  # Virtualization
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  virtualisation.vmware.host.enable = true;
+
+  # Nix Configurations
+  nix.optimise.automatic = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Services
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.ratbagd.enable = true;
   services.fwupd.enable = true;
   hardware.wooting.enable = true;
+
+  # Documentation
   documentation.man.generateCaches = true;
   documentation.dev.enable = true;
   documentation.enable = true;
-  nix.optimise.automatic = true;
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  # Enable a swap file
+  swapDevices = [ {
+    device = "/swapfile";
+    size = 34*1024;
+    randomEncryption.enable = true;
+  } ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -248,5 +239,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
