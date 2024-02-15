@@ -148,6 +148,8 @@
 
     # Media
     vlc
+    ffmpeg
+    yt-dlp
     obs-studio
     audacity
     libsForQt5.kdenlive
@@ -160,8 +162,6 @@
     gnome.gnome-software
     gnome3.gnome-tweaks
     git
-    yt-dlp
-    ffmpeg
     gamescope
     gamemode
     flatpak
