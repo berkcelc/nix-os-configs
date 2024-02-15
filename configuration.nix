@@ -102,6 +102,14 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
+  # Enable automatic login for the user.
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "ryansamuels";
+
+  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ryansamuels = {
     isNormalUser = true;
@@ -125,14 +133,6 @@
   };
   hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
   services.flatpak.enable = true;
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "ryansamuels";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
