@@ -212,7 +212,7 @@
   # Enable a swap file
   swapDevices = [ {
     device = "/swapfile";
-    size = 34*1024;
+    size = 8*1024;
     randomEncryption.enable = true;
   } ];
 
