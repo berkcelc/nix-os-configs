@@ -183,7 +183,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = "daily"; 
-    flake = "/etc/nixos#hal-9000";
+    flake = ".#hal-9000";
     persistent = true;
   };
 
