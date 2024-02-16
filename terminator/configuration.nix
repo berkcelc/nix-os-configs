@@ -160,6 +160,10 @@
     appimage-run
     man-pages
     man-pages-posix
+
+    # VPN
+    openvpn
+    stunnel
   ];
 
   # Fonts
