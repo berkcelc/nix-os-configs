@@ -131,6 +131,7 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
   hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
+  programs.steam.gamescopeSession.enable = true;
   services.flatpak.enable = true;
 
   # Allow unfree packages
@@ -162,7 +163,6 @@
     gnome.gnome-software
     gnome3.gnome-tweaks
     git
-    gamescope
     gamemode
     flatpak
     appimage-run
@@ -183,7 +183,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = "daily"; 
-    flake = ".#hal-9000";
+    flake = "/etc/nixos/hal-9000#hal-9000";
     persistent = true;
   };
 
