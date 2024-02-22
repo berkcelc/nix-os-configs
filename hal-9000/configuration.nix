@@ -132,6 +132,24 @@
   };
   hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
   programs.steam.gamescopeSession.enable = true;
+  # Required for gamescope to function
+  nixpkgs.config.packageOverrides = pkgs: {
+    steam = pkgs.steam.override {
+      extraPkgs = pkgs: with pkgs; [
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        libpng
+        libpulseaudio
+        libvorbis
+        stdenv.cc.cc.lib
+        libkrb5
+        keyutils
+      ];
+    };
+  };
+  # Enables flatpak
   services.flatpak.enable = true;
 
   # Allow unfree packages
