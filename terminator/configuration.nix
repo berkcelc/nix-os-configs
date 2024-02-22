@@ -178,7 +178,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = "daily"; 
-    flake = ".#hal-9000";
+    flake = "/etc/nixos/terminator#terminator";
     persistent = true;
   };
 
