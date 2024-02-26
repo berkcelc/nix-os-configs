@@ -132,6 +132,7 @@
   };
   hardware.opengl.driSupport32Bit = true; # Enables support for 32bit libs that steam uses
   programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
   # Required for gamescope to function
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
@@ -181,7 +182,6 @@
     gnome.gnome-software
     gnome3.gnome-tweaks
     git
-    gamemode
     flatpak
     appimage-run
     man-pages
@@ -230,6 +230,7 @@
   services.ratbagd.enable = true;
   services.fwupd.enable = true;
   hardware.wooting.enable = true;
+  services.cron.enable = true;
 
   # Documentation
   documentation.man.generateCaches = true;
