@@ -16,6 +16,20 @@
     };
   };
 
+  dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "BingWallpaper@ineffable-gmail.com"
+        "caffeine@patapon.info"
+        "clipboard-indicator@tudmotu.com"
+        "dash-to-dock@micxgx.gmail.com"
+        "Vitals@CoreCoding.com"
+      ];
+    };
+  };
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
