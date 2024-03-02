@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "ryansamuels";
-  home.homeDirectory = "/home/ryansamuels";
+  home.username = "ryans";
+  home.homeDirectory = "/home/ryans";
 
   programs.bash = {
     enable = true;

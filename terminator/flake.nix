@@ -26,7 +26,7 @@
                     {
                         home-manager.useGlobalPkgs = true;
                         home-manager.useUserPackages = true;
-                        home-manager.users.ryansamuels = import ./home.nix;
+                        home-manager.users.ryans = import ./home.nix;
                     }
 
                     # Lanzaboote (Secure Boot)
