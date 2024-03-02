@@ -235,7 +235,6 @@
   services.ratbagd.enable = true;
   services.fwupd.enable = true;
   hardware.wooting.enable = true;
-  services.cron.enable = true;
 
   # Documentation
   documentation.man.generateCaches = true;

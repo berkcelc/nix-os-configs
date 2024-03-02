@@ -11,8 +11,5 @@ git config --global user.name "Ryan Samuels"
 # To push/pull to and from local and remote repo
 cd /etc/nixos && git fetch origin && git pull origin main && git add . && git commit -m "Automated commit message"
 
-# What to put in crontab
-0 8,20 * * * cd /etc/nixos && git fetch origin && git pull origin main && git add . && git commit -m "Automated commit message" && git push origin main
-
 # Ensure that local repo compares itself to remote
 git branch --set-upstream-to origin/main
