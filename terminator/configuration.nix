@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
@@ -225,7 +225,6 @@
   services.ratbagd.enable = true;
   services.fwupd.enable = true;
   hardware.wooting.enable = true;
-  services.cron.enable = true;
 
   # Documentation
   documentation.man.generateCaches = true;

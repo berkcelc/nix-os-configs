@@ -19,7 +19,6 @@
         nixosConfigurations = {
             hal-9000 = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
-
                 modules = [
                     ./configuration.nix
 
