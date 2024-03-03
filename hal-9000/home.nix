@@ -1,8 +1,10 @@
-{ lib, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "ryansamuels";
   home.homeDirectory = "/home/ryansamuels";
+
+  imports = [ ./dconf.nix ];
 
   programs.bash = {
     enable = true;
@@ -13,56 +15,6 @@
       confupdate="sudo nix flake update /etc/nixos/hal-9000 && sudo nixos-rebuild switch --flake '/etc/nixos/hal-9000#hal-9000'";
       confgarbage="sudo nix-collect-garbage -d";
       confgit="cd /etc/nixos && sudo git fetch origin && sudo git pull origin main && sudo git add . && sudo git commit -m 'Manual commit message' && sudo git push origin main";
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "BingWallpaper@ineffable-gmail.com"
-        "caffeine@patapon.info"
-        "clipboard-indicator@tudmotu.com"
-        "dash-to-dock@micxgx.gmail.com"
-        "Vitals@CoreCoding.com"
-      ];
-    };
-   "org/gnome/shell/extensions/bingwallpaper" = {
-      hide = true;
-      notify = false;
-    };
-    "org/extensions/caffeine" = {
-      enable-fullscreen = false;
-      show-indicator = "always";
-      show-notifications = false;
-    };
-    "org/gnome/shell/extensions/vitals" = {
-      position-in-panel = 2;
-    };
-    "org/gnome/desktop/interface" = {
-      clock-show-weekday = true;
-    };
-    "org/gnome/desktop/calendar" = {
-      show-weekdate = true;
-    };
-    "org/gnome/desktop/privacy" = {
-      remove-old-trash-files = true;
-      remove-old-temp-files = true;
-      old-files-age = lib.hm.gvariant.mkUint32 30;
-      remember-recent-files = true;
-    };
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
-    };
-    "org/gnome/desktop/peripherals/mouse" = {
-      accel-profile = "flat";
-    };
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-    "org/gnome/mutter" = {
-      edge-tiling = true;
     };
   };
 
