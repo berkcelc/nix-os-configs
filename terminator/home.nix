@@ -4,6 +4,8 @@
   home.username = "ryans";
   home.homeDirectory = "/home/ryans";
 
+  imports = [ ./dconf.nix ];
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -13,20 +15,6 @@
       confupdate="sudo nix flake update /etc/nixos/terminator && sudo nixos-rebuild switch --flake '/etc/nixos/terminator#terminator'";
       confgarbage="sudo nix-collect-garbage -d";
       confgit="cd /etc/nixos && sudo git fetch origin && sudo git pull origin main && sudo git add . && sudo git commit -m 'Manual commit message' && sudo git push origin main";
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "BingWallpaper@ineffable-gmail.com"
-        "caffeine@patapon.info"
-        "clipboard-indicator@tudmotu.com"
-        "dash-to-dock@micxgx.gmail.com"
-        "Vitals@CoreCoding.com"
-      ];
     };
   };
 
