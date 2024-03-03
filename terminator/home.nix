@@ -18,50 +18,6 @@
     };
   };
 
-  dconf.settings = {
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "BingWallpaper@ineffable-gmail.com"
-        "caffeine@patapon.info"
-        "clipboard-indicator@tudmotu.com"
-        "dash-to-dock@micxgx.gmail.com"
-        "Vitals@CoreCoding.com"
-      ];
-    };
-   "org/gnome/shell/extensions/bingwallpaper" = {
-      hide = true;
-      notify = false;
-    };
-    "org/extensions/caffeine" = {
-      enable-fullscreen = false;
-      show-indicator = "always";
-      show-notifications = false;
-    };
-    "org/gnome/shell/extensions/vitals" = {
-      position-in-panel = 2;
-    };
-    "org/gnome/desktop/interface" = {
-      clock-show-weekday = true;
-    };
-    "org/gnome/desktop/calendar" = {
-      show-weekdate = true;
-    };
-    "org/gnome/desktop/privacy" = {
-      remove-old-trash-files = true;
-      remove-old-temp-files = true;
-      old-files-age = lib.hm.gvariant.mkUint32 30;
-      remember-recent-files = true;
-    };
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-    "org/gnome/mutter" = {
-      edge-tiling = true;
-    };
-  };
-
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
