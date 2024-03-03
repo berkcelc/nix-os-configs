@@ -95,10 +95,6 @@ with lib.hm.gvariant;
       position-in-panel = 2;
     };
 
-    "org/gnome/simple-scan" = {
-      document-type = "photo";
-    };
-
     "org/gnome/system/location" = {
       enabled = false;
     };
