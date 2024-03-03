@@ -52,10 +52,6 @@ with lib.hm.gvariant;
       edge-tiling = true;
     };
 
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
-    };
-
     "org/gnome/shell/extensions/appindicator" = {
       legacy-tray-enabled = true;
     };
@@ -81,7 +77,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/system/location" = {
-      enabled = false;
+      enabled = true;
     };
 
     "org/gnome/tweaks" = {
