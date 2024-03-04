@@ -173,7 +173,6 @@
     # Utilities
     gnome.gnome-software
     gnome3.gnome-tweaks
-    git
     flatpak
     appimage-run
     man-pages
@@ -182,6 +181,12 @@
     # VPN
     openvpn
     stunnel
+
+    # Development
+    git
+    gcc
+    rustup
+    cargo
   ];
 
   # Fonts
