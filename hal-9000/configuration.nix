@@ -186,7 +186,7 @@
     man-pages
     man-pages-posix
     piper
-    mission-center
+    resources
 
     # Development
     git
