@@ -236,6 +236,8 @@
   services.ratbagd.enable = true;
   services.fwupd.enable = true;
   hardware.wooting.enable = true;
+  programs.haguichi.enable = true;
+  services.logmein-hamachi.enable = true;
 
   # Documentation
   documentation.man.generateCaches = true;

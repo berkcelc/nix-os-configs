@@ -103,5 +103,9 @@ with lib.hm.gvariant;
       show-extensions-notice = false;
     };
 
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
   };
 }
