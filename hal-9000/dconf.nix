@@ -54,6 +54,7 @@ with lib.hm.gvariant;
     "org/gnome/mutter" = {
       attach-modal-dialogs = false;
       edge-tiling = true;
+      dynamic-workspaces = true;
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
