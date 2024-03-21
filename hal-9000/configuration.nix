@@ -187,6 +187,7 @@
     man-pages-posix
     piper
     resources
+    pika-backup
 
     # Development
     git
