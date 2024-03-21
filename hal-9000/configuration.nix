@@ -181,10 +181,6 @@
     # Utilities
     gnome.gnome-software
     gnome3.gnome-tweaks
-    flatpak
-    appimage-run
-    man-pages
-    man-pages-posix
     piper
     resources
     pika-backup
@@ -194,6 +190,14 @@
     gcc
     rustup
     cargo
+
+    # System
+    flatpak
+    appimage-run
+    man-pages
+    man-pages-posix
+    qgnomeplatform
+    qgnomeplatform-qt6
   ];
 
   # Fonts
