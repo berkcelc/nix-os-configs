@@ -193,6 +193,7 @@
     onlyoffice-bin
     firefox
     qbittorrent
+    ryujinx
 
     # Utilities
     gnome.gnome-software
