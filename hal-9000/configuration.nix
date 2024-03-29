@@ -225,14 +225,6 @@
     aegyptus
   ];
 
-  # Auto Updates
-  system.autoUpgrade = {
-    enable = true;
-    dates = "daily"; 
-    flake = "/etc/nixos/hal-9000#hal-9000";
-    persistent = true;
-  };
-
   # Printers
   services.printing.drivers = [ pkgs.canon-cups-ufr2 ];
   services.avahi = {
