@@ -131,12 +131,19 @@
     description = "Ryan Samuels";
     extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
     packages = with pkgs; [
+      # Games
+      prismlauncher
+      vinegar
+      ryujinx
+      r2modman
+
+      # Media
       vesktop
-      vscode
       stremio
       jellyfin-media-player
-      prismlauncher
-      r2modman
+
+      # Development
+      vscode
     ];
   };
 
@@ -193,7 +200,6 @@
     onlyoffice-bin
     firefox
     qbittorrent
-    ryujinx
 
     # Utilities
     gnome.gnome-software
