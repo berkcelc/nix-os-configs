@@ -133,7 +133,6 @@
     packages = with pkgs; [
       # Games
       prismlauncher
-      vinegar
       ryujinx
       r2modman
 
