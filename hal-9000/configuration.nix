@@ -140,6 +140,7 @@
       vesktop
       stremio
       jellyfin-media-player
+      komikku
 
       # Development
       vscode
